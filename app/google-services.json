@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "949358727177",
+    "firebase_url": "https://student-management-6518a.firebaseio.com",
+    "project_id": "student-management-6518a",
+    "storage_bucket": "student-management-6518a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949358727177:android:ac0b3ae1f30714e0f468d8",
+        "android_client_info": {
+          "package_name": "com.studentmanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949358727177-d2sjtce4ue0t7nbgl4l5d5qs90idu4q9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKfQapWiEpdJJIGUcAeav_CshRBis8pS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949358727177-d2sjtce4ue0t7nbgl4l5d5qs90idu4q9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949358727177:android:8b5dd44134482a25f468d8",
+        "android_client_info": {
+          "package_name": "com.studentmanagement.teacher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949358727177-d2sjtce4ue0t7nbgl4l5d5qs90idu4q9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKfQapWiEpdJJIGUcAeav_CshRBis8pS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949358727177-d2sjtce4ue0t7nbgl4l5d5qs90idu4q9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

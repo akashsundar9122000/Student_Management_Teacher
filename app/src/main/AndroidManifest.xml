@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.studentmanagement.teacher">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/teacher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.StudentManagementTeacher">
+        <activity android:name=".EditStudentProfileActivity"></activity>
+        <activity
+            android:name=".CreateTimeTableActivity"
+            android:label="Create Timetable" />
+        <activity
+            android:name=".TimeTableActivity"
+            android:label="My Timetable" />
+        <activity
+            android:name=".CalenderActivity"
+            android:label="My Calender" />
+        <activity android:name=".SingleStudentActivity" />
+        <activity
+            android:name=".ShowStudentProfileActivity"
+            android:label="Student Details" />
+        <activity
+            android:name=".MyStudentsActivity"
+            android:label="My Student" />
+        <activity
+            android:name=".CreateStudentsActivity"
+            android:label="Create Student" />
+        <activity android:name=".ResetPasswordActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".EditProfileActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.Splash" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:theme="@style/Theme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+    </application>
+
+</manifest>
