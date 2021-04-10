@@ -2,14 +2,15 @@ package com.studentmanagement.teacher.models;
 
 public class Materials {
 
-    String material_key, material, url;
+    String material_key, subject_name, unit, url;
 
     public Materials() {
     }
 
-    public Materials(String material_key, String material, String url) {
+    public Materials(String material_key, String subject_name, String unit, String url) {
         this.material_key = material_key;
-        this.material = material;
+        this.subject_name = subject_name;
+        this.unit = unit;
         this.url = url;
     }
 
@@ -21,12 +22,20 @@ public class Materials {
         this.material_key = material_key;
     }
 
-    public String getMaterial() {
-        return material;
+    public String getSubject_name() {
+        return subject_name;
     }
 
-    public void setMaterial(String material) {
-        this.material = material;
+    public void setSubject_name(String subject_name) {
+        this.subject_name = subject_name;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public String getUrl() {

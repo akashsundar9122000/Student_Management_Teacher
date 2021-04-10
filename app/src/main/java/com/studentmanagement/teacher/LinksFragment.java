@@ -50,7 +50,7 @@ public class LinksFragment extends Fragment {
         mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         mCurrentUserId = mFirebaseUser.getUid();
 
-        mLinksDatabase = FirebaseDatabase.getInstance().getReference("Notes").child(mCurrentUserId);
+        mLinksDatabase = FirebaseDatabase.getInstance().getReference("Links").child(mCurrentUserId);
         mLinksDatabase.keepSynced(true);
 
         Links_List =  view.findViewById(R.id.note_list);

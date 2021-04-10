@@ -2,12 +2,15 @@ package com.studentmanagement.teacher.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.firebase.storage.FirebaseStorage;
 import com.studentmanagement.teacher.CalenderActivity;
 import com.studentmanagement.teacher.R;
 import com.studentmanagement.teacher.TimeTableActivity;
@@ -42,7 +45,21 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ImageViewHol
         final Notes notes = mNotes.get(position);
 
 
-        holder.Name.setText(notes.getNote());
+        holder.Note.setText(notes.getNote());
+        holder.Pdf_Layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW);
+                browserIntent.setDataAndType(Uri.parse(notes.getUrl()), "application/pdf");
+                mContext.startActivity(browserIntent);
+            }
+        });
+        if (!notes.getUrl().isEmpty()) {
+            holder.Pdf_Layout.setVisibility(View.VISIBLE);
+            holder.Pdf_Name.setText(FirebaseStorage.getInstance().getReferenceFromUrl(notes.getUrl()).getName());
+        } else {
+            holder.Pdf_Layout.setVisibility(View.GONE);
+        }
 
 
 
@@ -56,13 +73,16 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ImageViewHol
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView Name;
+        public TextView Note, Pdf_Name;
+        private RelativeLayout Pdf_Layout;
 
 
         public ImageViewHolder(View itemView) {
             super(itemView);
 
-            Name = itemView.findViewById(R.id.name);
+            Note = itemView.findViewById(R.id.note);
+            Pdf_Name = itemView.findViewById(R.id.pdf_name);
+            Pdf_Layout = itemView.findViewById(R.id.pdf_layout);
         }
     }
 

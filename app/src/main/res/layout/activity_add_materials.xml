@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".AddMaterialsActivity">
 
     <ScrollView
@@ -16,25 +17,65 @@
             android:layout_height="match_parent">
 
 
-            <LinearLayout
+            <EditText
                 android:layout_width="match_parent"
-                android:layout_margin="10dp"
-                android:layout_height="150dp">
+                android:layout_height="wrap_content"
+                android:id="@+id/subject_name"
+                android:fontFamily="@font/nunito"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:textSize="15dp"
+                android:hint="Subject Name"/>
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/material"
-                    android:hint="@+id/material..."/>
-            </LinearLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/unit"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:textSize="15dp"
+                android:fontFamily="@font/nunito"
+                android:hint="Unit"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Upload Files"
+                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/nunito_bold"
+                android:textSize="15dp"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
                 android:id="@+id/add"/>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:id="@+id/pdf_layout"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/pdf"
+                    android:id="@+id/pdf_image"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Compiler Design Material.pdf"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:id="@+id/pdf_name"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nunito_bold"
+                    android:layout_toRightOf="@id/pdf_image"
+                    android:layout_marginLeft="5dp"/>
+
+
+            </RelativeLayout>
 
 
         </LinearLayout>

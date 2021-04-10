@@ -67,6 +67,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_bold"
                 android:gravity="center"
+                android:autoLink="web"
                 android:text="Note Name"
                 android:textColor="@color/colorBlack"
                 android:textSize="16dp" />

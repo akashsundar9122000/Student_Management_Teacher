@@ -51,7 +51,7 @@ public class MaterialsFragment extends Fragment {
         mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         mCurrentUserId = mFirebaseUser.getUid();
 
-        mMaterialsDatabase = FirebaseDatabase.getInstance().getReference("Notes").child(mCurrentUserId);
+        mMaterialsDatabase = FirebaseDatabase.getInstance().getReference("Materials").child(mCurrentUserId);
         mMaterialsDatabase.keepSynced(true);
 
         Materials_List =  view.findViewById(R.id.material_list);
