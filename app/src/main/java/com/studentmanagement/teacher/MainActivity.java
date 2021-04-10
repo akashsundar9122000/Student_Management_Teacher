@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         Class_Room.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent class_room_intent = new Intent(MainActivity.this,ProfileActivity.class);
+                Intent class_room_intent = new Intent(MainActivity.this,ClassRoomActivity.class);
                 startActivity(class_room_intent);
             }
         });
