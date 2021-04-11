@@ -32,7 +32,7 @@ public class EditStudentProfileActivity extends AppCompatActivity {
     private FloatingActionButton save;
 
     private FirebaseUser mFirebaseUser;
-    private String mCurrentUserId;
+    private String student_id;
     private DatabaseReference mUsersDatabase;
 
     @Override
@@ -40,10 +40,11 @@ public class EditStudentProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_student_profile);
 
-        mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        mCurrentUserId = mFirebaseUser.getUid();
+        Intent intent = getIntent();
+        student_id = intent.getStringExtra("user_id");
 
-        mUsersDatabase = FirebaseDatabase.getInstance().getReference("Teacher").child(mCurrentUserId);
+
+        mUsersDatabase = FirebaseDatabase.getInstance().getReference("Student").child(student_id);
         mUsersDatabase.keepSynced(true);
 
         cgpa=findViewById(R.id.cgpa);
@@ -86,7 +87,9 @@ public class EditStudentProfileActivity extends AppCompatActivity {
                     mUsersDatabase.updateChildren(map);
 
                     Toast.makeText(EditStudentProfileActivity.this, "Successfully Updated!", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(EditStudentProfileActivity.this,ShowStudentProfileActivity.class));
+                    Intent intent = new Intent(EditStudentProfileActivity.this, ShowStudentProfileActivity.class);
+                    intent.putExtra("student_id", student_id);
+                    startActivity(intent);
                     finish();
                 }
 

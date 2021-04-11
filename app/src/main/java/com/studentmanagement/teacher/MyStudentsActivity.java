@@ -34,7 +34,7 @@ public class MyStudentsActivity extends AppCompatActivity {
     private DatabaseReference mStudentDatabase;
     private FloatingActionButton add;
     private FirebaseUser mFirebaseUser;
-    private String mCurrentUserId;
+    private String mCurrentUserId, key;
     private Uri mImageUri;
     private StorageTask mUploadTask;
     private StorageReference mProfileImageStorage;
@@ -44,6 +44,10 @@ public class MyStudentsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_students);
+
+        Intent intent = getIntent();
+
+        key = intent.getStringExtra("key");
 
         mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         mCurrentUserId = mFirebaseUser.getUid();
@@ -58,11 +62,17 @@ public class MyStudentsActivity extends AppCompatActivity {
         mLayoutManager.setStackFromEnd(true);
         Student_List.setLayoutManager(mLayoutManager);
         studentList = new ArrayList<>();
-        programAdapter = new StudentAdapter(MyStudentsActivity.this, studentList);
+        programAdapter = new StudentAdapter(MyStudentsActivity.this, studentList, key);
         Student_List.setAdapter(programAdapter);
 
         readPrograms();
         add=findViewById(R.id.add);
+
+        if (key.equals("ms")){
+            add.setVisibility(View.VISIBLE);
+        }else{
+            add.setVisibility(View.GONE);
+        }
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override

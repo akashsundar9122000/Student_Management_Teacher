@@ -39,8 +39,8 @@ public class ShowStudentProfileActivity extends AppCompatActivity {
         Intent intent = getIntent();
         student_id = intent.getStringExtra("student_id");
 
+
         mUsersDatabase = FirebaseDatabase.getInstance().getReference("Student").child(student_id);
-        mUsersDatabase.keepSynced(true);
 
         first_name=findViewById(R.id.first_name);
         last_name=findViewById(R.id.last_name);
@@ -70,6 +70,7 @@ public class ShowStudentProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent edit_profile_intent = new Intent(ShowStudentProfileActivity.this, EditStudentProfileActivity.class);
+                edit_profile_intent.putExtra("user_id", student_id);
                 startActivity(edit_profile_intent);
             }
         });

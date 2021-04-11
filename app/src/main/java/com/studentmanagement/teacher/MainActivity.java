@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent about_me_intent = new Intent(MainActivity.this,MyStudentsActivity.class);
+                about_me_intent.putExtra("key", "ms");
                 startActivity(about_me_intent);
             }
         });
@@ -64,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
         Extra_Curricular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent extra_curricular_intent = new Intent(MainActivity.this,ProfileActivity.class);
+                Intent extra_curricular_intent = new Intent(MainActivity.this,MyStudentsActivity.class);
+                extra_curricular_intent.putExtra("key", "eca");
                 startActivity(extra_curricular_intent);
             }
         });

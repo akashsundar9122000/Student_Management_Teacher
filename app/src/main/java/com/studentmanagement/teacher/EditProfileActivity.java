@@ -129,24 +129,21 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String first = first_name.getText().toString();
-                String last = last_name.getText().toString();
+
                 String phone = phone_number.getText().toString();
-                String father = father_name.getText().toString();
-                String mother = mother_name.getText().toString();
-                String dob = date_of_birth.getText().toString();
+
+
                 String add = address.getText().toString();
                 String ci = city.getText().toString();
                 String sta = state.getText().toString();
                 String pin = pincode.getText().toString();
 
-                if(isEmpty(first,last,phone,father,mother,dob,add,ci,sta,pin)){
+                if(isEmpty(first,phone,add,ci,sta,pin)){
                     HashMap<String, Object> map = new HashMap<>();
                     map.put("first_name", first);
-                    map.put("last_name", last);
+
                     map.put("phone", phone);
-                    map.put("father_name", father);
-                    map.put("mother_name", mother);
-                    map.put("date_of_birth", dob);
+
                     map.put("address", add);
                     map.put("city", ci);
 
@@ -164,8 +161,8 @@ public class EditProfileActivity extends AppCompatActivity {
         });
     }
 
-    private boolean isEmpty(String first, String last,String phone,String father,String mother,String dob,String add,String ci,String sta,String pin) {
-        if (first.isEmpty() || last.isEmpty() || phone.isEmpty() || father.isEmpty() || mother.isEmpty() || dob.isEmpty() || add.isEmpty() || ci.isEmpty() || sta.isEmpty() || pin.isEmpty()) {
+    private boolean isEmpty(String first,String phone,String add,String ci,String sta,String pin) {
+        if (first.isEmpty() || phone.isEmpty() ||add.isEmpty() || ci.isEmpty() || sta.isEmpty() || pin.isEmpty()) {
             Toast.makeText(EditProfileActivity.this, "PLEASE ENTER EVERY DETAILS", Toast.LENGTH_SHORT).show();
             return false;
         }

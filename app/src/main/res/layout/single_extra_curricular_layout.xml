@@ -22,14 +22,22 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/note"
+                android:id="@+id/activity_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_bold"
-                android:autoLink="web"
+                android:text="Activity Name"
                 android:textColor="@color/colorBlack"
                 android:textSize="16dp" />
 
+            <TextView
+                android:id="@+id/organisation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_bold"
+                android:text="Organisation"
+                android:textColor="@color/colorBlack"
+                android:textSize="16dp" />
 
 
             <RelativeLayout
@@ -47,10 +55,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Compiler Design Material.pdf"
                     android:singleLine="true"
                     android:maxLines="1"
                     android:id="@+id/pdf_name"
-
                     android:layout_centerVertical="true"
                     android:textColor="@color/black"
                     android:fontFamily="@font/nunito_bold"
