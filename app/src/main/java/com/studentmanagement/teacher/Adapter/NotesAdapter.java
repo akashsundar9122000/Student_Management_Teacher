@@ -64,19 +64,22 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.ImageViewHol
                 mContext.startActivity(browserIntent);
             }
         });
+        holder.Pdf_Name.setText(FirebaseStorage.getInstance().getReferenceFromUrl(notes.getUrl()).getName());
         if (!notes.getUrl().isEmpty()) {
             holder.Pdf_Layout.setVisibility(View.VISIBLE);
-            holder.Pdf_Name.setText(FirebaseStorage.getInstance().getReferenceFromUrl(notes.getUrl()).getName());
+
         } else {
             holder.Pdf_Layout.setVisibility(View.GONE);
         }
 
-        mNotesDatabase = FirebaseDatabase.getInstance().getReference("Notes").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(notes.getNote_key());
+
 
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+
+                mNotesDatabase = FirebaseDatabase.getInstance().getReference("Notes").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(notes.getNote_key());
 
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(mContext);
                 builder1.setMessage("Do you want to Delete?");

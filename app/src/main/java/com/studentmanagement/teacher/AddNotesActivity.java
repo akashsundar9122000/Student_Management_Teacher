@@ -9,9 +9,11 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.OpenableColumns;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
@@ -129,6 +131,23 @@ public class AddNotesActivity extends AppCompatActivity {
         if (requestCode == 001 && resultCode == RESULT_OK && data != null && data.getData() != null) {
             //if a file is selected
             if (data.getData() != null) {
+                Pdf_Layout.setVisibility(View.VISIBLE);
+                String uriString = data.getData().toString();
+                File file = new File(uriString);
+
+                if (uriString.startsWith("content://")) {
+                    Cursor cursor = null;
+                    try {
+                        cursor = getContentResolver().query(data.getData(), null, null, null, null);
+                        if (cursor != null && cursor.moveToFirst()) {
+                            Pdf_Name.setText(cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)));
+                        }
+                    } finally {
+                        cursor.close();
+                    }
+                } else if (uriString.startsWith("file://")) {
+                    Pdf_Name.setText(file.getName());
+                }
                 mUri = data.getData();
             }else{
                 Toast.makeText(this, "No file chosen", Toast.LENGTH_SHORT).show();

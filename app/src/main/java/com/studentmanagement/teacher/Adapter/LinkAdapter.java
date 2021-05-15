@@ -56,13 +56,12 @@ public class LinkAdapter  extends RecyclerView.Adapter<LinkAdapter.ImageViewHold
         holder.time.setText(links.getTime());
         holder.link.setText(links.getLink());
 
-        mLinkDatabase = FirebaseDatabase.getInstance().getReference("Links").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(links.getLink_key());
-
-
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+
+                mLinkDatabase = FirebaseDatabase.getInstance().getReference("Links").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(links.getLink_key());
 
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(mContext);
                 builder1.setMessage("Do you want to Delete?");

@@ -140,7 +140,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
                 if(isEmpty(first,phone,add,ci,sta,pin)){
                     HashMap<String, Object> map = new HashMap<>();
-                    map.put("first_name", first);
+                    map.put("name", first);
 
                     map.put("phone", phone);
 

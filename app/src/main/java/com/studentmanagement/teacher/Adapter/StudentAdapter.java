@@ -67,11 +67,13 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ImageVie
             }
         });
 
-        mUsersDatabase = FirebaseDatabase.getInstance().getReference("Student").child(student.getStudent_id());
+
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+
+                mUsersDatabase = FirebaseDatabase.getInstance().getReference("Student").child(student.getStudent_id());
 
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(mContext);
                 builder1.setMessage("Do you want to Delete?");

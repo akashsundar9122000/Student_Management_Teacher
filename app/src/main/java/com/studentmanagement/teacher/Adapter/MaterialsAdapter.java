@@ -69,12 +69,14 @@ public class MaterialsAdapter extends RecyclerView.Adapter<MaterialsAdapter.Imag
         });
         holder.Pdf_Name.setText(FirebaseStorage.getInstance().getReferenceFromUrl(materials.getUrl()).getName());
 
-        mMaterialsDatabase = FirebaseDatabase.getInstance().getReference("Materials").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(materials.getMaterial_key());
+
 
 
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+
+                mMaterialsDatabase = FirebaseDatabase.getInstance().getReference("Materials").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(materials.getMaterial_key());
 
                 AlertDialog.Builder builder1 = new AlertDialog.Builder(mContext);
                 builder1.setMessage("Do you want to Delete?");

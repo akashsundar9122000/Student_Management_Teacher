@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CardView My_Students,Time_Table,Class_Room,Semester,Extra_Curricular,GPA_Calculator;
+    private CardView My_Students,Time_Table,Class_Room,Semester,Extra_Curricular,Attendance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Class_Room=findViewById(R.id.class_room);
         Semester=findViewById(R.id.semester);
         Extra_Curricular =findViewById(R.id.extra_curricular);
-        GPA_Calculator=findViewById(R.id.attendance);
+        Attendance=findViewById(R.id.attendance);
 
         My_Students.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        GPA_Calculator.setOnClickListener(new View.OnClickListener() {
+        Attendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent gpa_intent = new Intent(MainActivity.this,ProfileActivity.class);
+                Intent gpa_intent = new Intent(MainActivity.this,AttendanceActivity.class);
                 startActivity(gpa_intent);
             }
         });

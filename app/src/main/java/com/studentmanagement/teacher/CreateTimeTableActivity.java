@@ -87,26 +87,14 @@ public class CreateTimeTableActivity extends AppCompatActivity {
                 String code = subject_code.getText().toString();
                 String staff = staff_name.getText().toString();
 
-
-                if(isEmpty(sub,code,staff)){
+                if (is_break) {
                     String key=mTimeTableDatabase.push().getKey();
                     HashMap<String, Object> map = new HashMap<>();
-                    if(is_break){
-                        map.put("period","");
-                        map.put("subject_code", "");
-                        map.put("staff_name",  "");
-                        map.put("day",day);
-                        map.put("isBreak",is_break);
-                    }
-                    else{
-                        map.put("period", sub);
-                        map.put("subject_code", code);
-                        map.put("staff_name", staff);
-                        map.put("day",day);
-                        map.put("isBreak",is_break);
-                    }
-
-
+                    map.put("period","");
+                    map.put("subject_code", "");
+                    map.put("staff_name",  "");
+                    map.put("day",day);
+                    map.put("isBreak",is_break);
 
                     mTimeTableDatabase.child(key).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -118,9 +106,31 @@ public class CreateTimeTableActivity extends AppCompatActivity {
                             }
                         }
                     });
+                }else {
+                    String key=mTimeTableDatabase.push().getKey();
+                    HashMap<String, Object> map = new HashMap<>();
+                    if(isEmpty(sub,code,staff)){
+                        map.put("period", sub);
+                        map.put("subject_code", code);
+                        map.put("staff_name", staff);
+                        map.put("day",day);
+                        map.put("isBreak",is_break);
+
+                        mTimeTableDatabase.child(key).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isComplete()){
+                                    Toast.makeText(CreateTimeTableActivity.this, "Successfully Created!", Toast.LENGTH_SHORT).show();
+
+                                    finish();
+                                }
+                            }
+                        });
+                    }
 
 
                 }
+
             }
         });
     }
