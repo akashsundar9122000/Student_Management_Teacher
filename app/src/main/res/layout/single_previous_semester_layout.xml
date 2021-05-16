@@ -45,7 +45,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/pdf"
+                    android:src="@drawable/pic"
                     android:id="@+id/pdf_image"/>
 
                 <TextView
