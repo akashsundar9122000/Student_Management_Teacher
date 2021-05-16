@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         Semester.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent semester_intent = new Intent(MainActivity.this,ProfileActivity.class);
+                Intent semester_intent = new Intent(MainActivity.this,SemesterActivity.class);
                 startActivity(semester_intent);
             }
         });

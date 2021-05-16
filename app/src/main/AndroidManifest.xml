@@ -48,6 +48,8 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/Theme.Splash" />
+        <activity android:name=".PreviousSemesterActivity"/>
+        <activity android:name=".SemesterActivity"/>
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/Theme.Splash">

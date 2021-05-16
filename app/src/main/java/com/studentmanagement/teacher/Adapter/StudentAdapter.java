@@ -9,6 +9,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.studentmanagement.teacher.ExtraCurricularActivity;
+import com.studentmanagement.teacher.PreviousSemesterActivity;
 import com.studentmanagement.teacher.R;
 import com.studentmanagement.teacher.ShowStudentProfileActivity;
 import com.studentmanagement.teacher.models.Student;
@@ -59,7 +60,15 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ImageVie
                     Intent intent = new Intent(mContext, ShowStudentProfileActivity.class);
                     intent.putExtra("student_id", student.getStudent_id());
                     mContext.startActivity(intent);
-                }else{
+                }else if (key.equals("ps")) {
+                    Intent intent = new Intent(mContext, PreviousSemesterActivity.class);
+                    intent.putExtra("student_id", student.getStudent_id());
+                    mContext.startActivity(intent);
+                }else if (key.equals("cs")) {
+                    Intent intent = new Intent(mContext, PreviousSemesterActivity.class);
+                    intent.putExtra("student_id", student.getStudent_id());
+                    mContext.startActivity(intent);
+                } else{
                     Intent intent = new Intent(mContext, ExtraCurricularActivity.class);
                     intent.putExtra("student_id", student.getStudent_id());
                     mContext.startActivity(intent);
